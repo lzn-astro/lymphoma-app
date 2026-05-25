@@ -107,14 +107,34 @@ elif page == "🪜 路径导航":
 
         lymphoma = st.selectbox(
             "你的类型（如果知道）：",
-            ["不清楚", "DLBCL"]
+            [
+        "不清楚",
+        "DLBCL (弥漫大B细胞淋巴瘤)",
+        "滤泡性淋巴瘤 (FL)",
+        "套细胞淋巴瘤 (MCL)",
+        "伯基特淋巴瘤",
+        "霍奇金淋巴瘤"
+    ]
         )
 
-        if lymphoma == "DLBCL":
-            st.success("DLBCL 是常见类型，可治疗性较好")
+        if lymphoma == "DLBCL (弥漫大B细胞淋巴瘤)":
+            st.success("进展较快，但通常对治疗反应较好")
 
             if st.button("👉 查看详细说明"):
                 st.session_state.page = "🧬 DLBCL"
+
+
+        elif lymphoma == "滤泡性淋巴瘤 (FL)":
+            st.info("进展较慢，部分患者可以长期随访")
+
+        elif lymphoma == "套细胞淋巴瘤 (MCL)":
+            st.warning("相对少见，通常需要专科医生评估")
+
+        elif lymphoma == "伯基特淋巴瘤":
+            st.error("进展非常快，需要尽快治疗")
+
+        elif lymphoma == "霍奇金淋巴瘤":
+            st.success("整体治疗效果较好，治愈率较高")
 
         st.markdown("""
 下一步通常：
